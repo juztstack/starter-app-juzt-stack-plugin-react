@@ -7,7 +7,9 @@
     <?php wp_head(); ?>
 </head>
 <body>
+    <?php get_header(); ?>
     <div id="root"></div>
+    <?php get_footer(); ?>
     <?php wp_footer(); ?>
 </body>
 </html>
