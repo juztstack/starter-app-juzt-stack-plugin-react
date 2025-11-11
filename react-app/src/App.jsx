@@ -5,7 +5,7 @@ import Cart from './pages/Cart'
 function App() {
   return (
     <BrowserRouter basename="/buy">
-      <div className="min-h-screen bg-gray-100">
+      <div className=" bg-gray-100">
         <nav className="bg-white shadow-lg">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex justify-between h-16">
