@@ -23,6 +23,8 @@ if (!defined('ABSPATH')) {
 
 define('MY_REACT_APP_PATH', plugin_dir_path(__FILE__));
 define('MY_REACT_APP_URL', plugin_dir_url(__FILE__));
+define('MY_REACT_APP_BASEPATH', 'buy');
+define('MY_REACT_APP_QUERY_PARAM', 'react_app');
 
 class My_React_App_Plugin {
     
@@ -34,8 +36,8 @@ class My_React_App_Plugin {
     
     public function register_routes() {
         
-        add_rewrite_rule('^buy(/.*)?$', 'index.php?react_app=1', 'top');
-        add_rewrite_tag('%react_app%', '([^&]+)');
+        add_rewrite_rule('^' . MY_REACT_APP_BASEPATH . '(/.*)?$', 'index.php?' . MY_REACT_APP_QUERY_PARAM . '=1', 'top');
+        add_rewrite_tag('%' . MY_REACT_APP_QUERY_PARAM . '%', '([^&]+)');
         
         if (get_option('my_react_app_flush_rewrite_rules') === 'yes') {
             flush_rewrite_rules();
@@ -85,7 +87,7 @@ class My_React_App_Plugin {
         wp_localize_script('react-app-script', 'wpData', array(
             'ajaxUrl' => admin_url('admin-ajax.php'),
             'nonce' => wp_create_nonce('react_app_nonce'),
-            'basePath' => '/buy'
+            'basePath' => '/' . MY_REACT_APP_BASEPATH,
         ));
     }
     
