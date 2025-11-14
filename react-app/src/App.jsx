@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import Home from './pages/Home'
 import Cart from './pages/Cart'
+import About from './pages/About'
 
 function App() {
   return (
@@ -22,6 +23,12 @@ function App() {
                 >
                   Cart
                 </Link>
+                <Link 
+                  to="/about" 
+                  className="inline-flex items-center px-1 pt-1 text-gray-900 hover:text-blue-600"
+                >
+                  About
+                </Link>
               </div>
             </div>
           </div>
@@ -31,6 +38,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </main>
       </div>
